@@ -1,9 +1,8 @@
 .channelRow {
-    margin: 1rem 0 1rem 0;
+    padding: 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* margin-left: 8rem; */
     cursor: pointer;
 }
 
@@ -15,9 +14,9 @@
 
 .channelRow__Info {
     display: flex;
+    flex-basis: 60%;
     flex-direction: column;
     justify-content: center;
-    margin: 0 2rem 0 4rem;
 }
 
 .channelRow__Info>p {

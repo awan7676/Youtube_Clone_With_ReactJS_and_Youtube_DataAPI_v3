@@ -3,7 +3,7 @@ import './VideoCard.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const API_KEY = 'AIzaSyD-6O6rfl0-xNWZVa_V7kqS8O2Y3HCauJU';
+const API_KEY = 'AIzaSyCqmcxxNLND-_tIH4Bku95pNl1IrIrKD04';
 
 
 const VideoCard = ({ channelId, image, title, channel, views, timestamp }) => {

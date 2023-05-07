@@ -10,7 +10,7 @@ const RecommendedVideos = ({ videos }) => {
                 {videos.map((video) => <VideoCard
                     key={video.id}
                     channelId={video.snippet.channelId}
-                    image={video.snippet.thumbnails.medium.url}
+                    image={video.snippet.thumbnails.high.url}
                     title={video.snippet.title}
                     channel={video.snippet.channelTitle}
                     views={video.statistics.viewCount}

@@ -30,7 +30,6 @@ const SidebarOtherRows = [
 
 const Sidebar = () => {
     const [selectedCategory, setSelectedCategory] = useState('Home');
-    let count = 1;
     return (
         <div className='sidebar'>
             {SidebarMainRows.map((row) => {
