@@ -16,7 +16,7 @@ const VideoCard = ({ channelId, image, title, channel, views, timestamp }) => {
             .catch(error => {
                 console.error(error);
             });
-    });
+    }, []);
     return (
         <div className="videoCard">
             <img className='videoCard__thumbnail' src={image} alt="" />

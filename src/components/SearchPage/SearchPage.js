@@ -60,12 +60,13 @@ const SearchPage = () => {
             <div className='searchPage__Videos'>
                 {videos.map((video) => <VideoRow
                     key={nextId()}
+                    channelId={video.snippet.channelId}
                     image={video.snippet.thumbnails.medium.url}
                     title={video.snippet.title}
                     views='2M Views'
                     timestamp={video.snippet.publishedAt}
                     channel={video.snippet.channelTitle}
-                    channelImg='https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg'
+                    // channelImg='https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg'
                     verified
                     description={video.snippet.description}
 
