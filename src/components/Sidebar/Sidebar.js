@@ -9,11 +9,27 @@ import WatchLaterOutlinedIcon from '@mui/icons-material/WatchLaterOutlined';
 import SlideshowOutlinedIcon from '@mui/icons-material/SlideshowOutlined';
 import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
 import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
+import { useState } from 'react';
+
+const SidebarRows = [
+    { Icon: HomeIcon, title: "Home" },
+    { Icon: WhatshotIcon, title: "Trending" },
+    { Icon: SubscriptionsOutlinedIcon, title: "Subscriptions" },
+    { Icon: VideoLibraryOutlinedIcon, title: "Library" },
+    { Icon: HistoryOutlinedIcon, title: "History" },
+    { Icon: SlideshowOutlinedIcon, title: "Your Videos" },
+    { Icon: WatchLaterOutlinedIcon, title: "Watch Later" },
+    { Icon: ThumbUpOutlinedIcon, title: "Liked Videos" },
+    { Icon: ExpandMoreOutlinedIcon, title: "Show More" },
+
+];
 
 const Sidebar = () => {
+    const [selectedCategory, setSelectedCategory] = useState('Home');
     return (
         <div className='sidebar'>
-            <SidebarRow selected Icon={HomeIcon} title="Home" />
+            {SidebarRows.map((row) => <SidebarRow Icon={row.Icon} title={row.title} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />)}
+            {/* <SidebarRow selected Icon={HomeIcon} title="Home" />
             <SidebarRow Icon={WhatshotIcon} title="Trending" />
             <SidebarRow Icon={SubscriptionsOutlinedIcon} title="Subscriptions" />
             <br />
@@ -26,7 +42,7 @@ const Sidebar = () => {
             <SidebarRow Icon={ThumbUpOutlinedIcon} title="Liked Videos" />
             <SidebarRow Icon={ExpandMoreOutlinedIcon} title="Show More" />
             <br />
-            <hr />
+            <hr /> */}
         </div>
     )
 }

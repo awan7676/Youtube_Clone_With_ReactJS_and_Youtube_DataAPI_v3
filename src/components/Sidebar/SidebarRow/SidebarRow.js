@@ -1,7 +1,7 @@
 import './SidebarRow.css';
-const SidebarRow = ({ selected, Icon, title }) => {
+const SidebarRow = ({ Icon, title, selectedCategory, setSelectedCategory }) => {
     return (
-        <div className={`sidebarRow ${selected && 'selected'}`}>
+        <div className={`sidebarRow ${selectedCategory === title && 'selected'}`} onClick={() => setSelectedCategory(title)} >
             <Icon className='sidebarRow__icon' />
             <h2 className='sidebarRow__title'>{title}</h2>
         </div>
