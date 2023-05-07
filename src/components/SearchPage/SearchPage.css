@@ -1,0 +1,29 @@
+.searchPage {
+    flex: 0.75;
+    margin-left: 2rem;
+}
+
+.searchPage__filter {
+    width: min-content;
+    display: flex;
+    align-items: center;
+    font-size: x-small !important;
+    gap: 0.25rem;
+    padding: 10px;
+    border-radius: 25px;
+    margin-bottom: 0.25rem;
+    cursor: pointer;
+}
+
+.searchPage__filter:hover {
+    background-color: lightgray;
+}
+
+.searchPage__Videos {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}

@@ -1,0 +1,68 @@
+.videoRow {
+    display: flex;
+    gap: 1.5rem;
+    cursor: pointer;
+}
+
+
+.videoRow__thumbnail {
+    width: 350px;
+    height: 200px;
+    border-radius: 10px;
+    transition: transform 0.2s;
+}
+
+.videoRow__thumbnail:hover {
+    transform: scale(1.05);
+}
+
+.videoRow__Info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    overflow: hidden;
+    width: 100%;
+}
+
+.videoRow__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.videoRow__titleDotsIcon {
+    padding: 5px;
+    border-radius: 50%;
+    width: 2rem !important;
+    height: 2rem !important;
+
+}
+
+.videoRow__titleDotsIcon:hover {
+    background-color: lightgray;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.videoRow__Info>p {
+    color: gray;
+    font-size: 13px;
+}
+
+.videoRow__ChannelInfo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.videoRow__avatar {
+    width: 2rem !important;
+    height: 2rem !important;
+}
+
+.videoRow__ChannelInfo>p {
+    color: gray;
+    font-size: 13px;
+}

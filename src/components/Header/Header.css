@@ -1,0 +1,98 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.75rem;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 100;
+}
+
+.header__left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.header__menuButton {
+    padding: 8px;
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+    border-radius: 50%;
+}
+
+.header__menuButton:hover {
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+.header__logo {
+    cursor: pointer;
+    height: 25px;
+    object-fit: contain;
+}
+
+.header__input {
+    display: flex;
+    align-items: center;
+    width: 40%;
+    border: 1px solid lightgray;
+    border-radius: 50px;
+}
+
+.header__input>input {
+    /* get maximum available width with flex: 1*/
+    flex: 1;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    padding-left: 1rem;
+}
+
+
+.header__inputButton {
+    background-color: #fafafa;
+    color: black;
+    border-left: 1px solid lightgray;
+    border-radius: 0 50px 50px 0px;
+    padding: 5px;
+}
+
+.header__inputButton:hover {
+    cursor: pointer;
+    background-color: lightgray
+}
+
+.header__SearchImg {
+    width: 3rem !important;
+}
+
+
+.header__icons {
+    display: flex;
+    align-items: center;
+}
+
+.header__icon {
+    margin-right: 0.5rem;
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+    padding: 8px;
+    border-radius: 50%;
+}
+
+.header__icon:hover {
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+.header__AvatarIcon {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 767px) {
+    .header__input {
+        display: none;
+    }
+}

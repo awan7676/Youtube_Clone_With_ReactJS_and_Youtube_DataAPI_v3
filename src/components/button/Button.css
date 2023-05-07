@@ -1,0 +1,12 @@
+.btn {
+    background-color: black;
+    color: white;
+    width: min-content;
+    height: min-content;
+    padding: 10px 15px 10px 15px;
+    border-radius: 30px;
+}
+
+.btn:hover {
+    background-color: rgb(42, 41, 41);
+}
