@@ -1,12 +1,14 @@
 .videoCard {
-    width: 350px;
-    margin: 2rem 0 0.25rem 2rem;
+    width: 22rem;
+    margin: 2rem 1rem 0.25rem 1rem;
     cursor: pointer;
 }
 
 .videoCard__thumbnail {
-    width: 350px;
-    height: 220px;
+    /* width: 350px;
+    height: 220px; */
+    width: 22rem;
+    height: 15rem;
     object-fit: contain;
     cursor: pointer;
     transition: transform 0.2s;

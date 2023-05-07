@@ -1,44 +1,16 @@
-.header {
+.header__right {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.75rem;
-    position: sticky;
-    top: 0;
-    background-color: white;
-    z-index: 100;
-}
-
-.header__left {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.header__menuButton {
-    padding: 8px;
-    width: 2.5rem !important;
-    height: 2.5rem !important;
-    border-radius: 50%;
-}
-
-.header__menuButton:hover {
-    background-color: lightgray;
-    cursor: pointer;
-}
-
-.header__logo {
-    cursor: pointer;
-    height: 25px;
-    object-fit: contain;
+    justify-content: space-around;
+    padding: 2rem 2rem;
 }
 
 .header__input {
     display: flex;
     align-items: center;
-    width: 40%;
     border: 1px solid lightgray;
     border-radius: 50px;
+    width: 60%;
+    flex-shrink: 2;
 }
 
 .header__input>input {

@@ -1,15 +1,14 @@
 .recommended-videos {
-    flex: 0.85;
     margin: 1rem 0;
-    padding-right: 2rem;
+    /* padding-right: 2rem; */
 }
 
 .recommended-videos>h2 {
-    margin-left: 2rem;
+    margin-left: 4rem;
 }
 
 .videos {
     display: flex;
     flex-wrap: wrap;
-    /* gap: 2rem; */
+    justify-content: center;
 }
