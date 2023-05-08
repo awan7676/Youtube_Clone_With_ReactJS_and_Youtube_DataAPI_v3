@@ -12,16 +12,18 @@ const API_KEY = 'AIzaSyCqmcxxNLND-_tIH4Bku95pNl1IrIrKD04';
 const SearchPageVideos = () => {
     let { searchText } = useParams();
     const [videos, setVideos] = useState([]);
-
+    const [channel, setChannel] = useState([]);
     const [isChannel, setIsChannel] = useState(false);
-    const [channelId, setChannelId] = useState('');
 
     const checkChannel = () => {
         axios.get(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&q=${searchText}&type=channel&part=snippet&part=id`)
             .then(response => {
                 const channels = response.data.items;
                 if (channels.length > 0) {
-                    setChannelId(channels[0].id.channelId);
+                    const channelId = channels[0].id.channelId;
+                    axios.get(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${channelId}&type=channel&part=snippet`)
+                        .then((response) => setChannel(response.data.items))
+                        .catch(err => console.log(err));
                     setIsChannel(true);
                 }
             })
@@ -47,7 +49,15 @@ const SearchPageVideos = () => {
                 <h2>FILTERS</h2>
             </div>
             <hr />
-            {isChannel && <ChannelRow channelId={channelId} />}
+            {isChannel && channel.map((channel) => <ChannelRow
+                image={channel.snippet.thumbnails.high.url}
+                channelTitle={channel.snippet.channelTitle}
+                verified
+                subs="660K subscribers"
+                noOfVideos={382}
+                description={channel.snippet.description}
+
+            />)}
             {/* {<ChannelRow
                 image='https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg'
                 channel='Traversy Media'

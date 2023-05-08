@@ -1,22 +1,18 @@
 import './ChannelRow.css';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import Button from '../button/Button';
-import { useEffect } from 'react';
-import axios from 'axios';
-import { useState } from 'react';
 
-const ChannelRow = ({ channelId }) => {
-
+const ChannelRow = ({ image, channelTitle, verified, subs, noOfVideos, description }) => {
     return (
         <div className="channelRow">
-            <img className='channelRow__Img' src={channel[0].snippet.thumbnails.medium.url} alt="" />
+            <img className='channelRow__Img' src={image} alt="" />
             <div className='channelRow__Info'>
                 <div className='channelRow__Title'>
-                    <h3>{channel[0].snippet.title}</h3>
+                    <h3>{channelTitle}</h3>
                     {<CheckCircleIcon style={{ color: 'gray', fontSize: '1rem' }} />}
                 </div>
-                <p>{300} videos<b> . </b>{282}</p>
-                <p>{channel[0].snippet.description}</p>
+                <p>{noOfVideos} videos<b> . </b>{subs}</p>
+                <p>{description}</p>
             </div>
             <Button text='Subscribe' />
         </div>
