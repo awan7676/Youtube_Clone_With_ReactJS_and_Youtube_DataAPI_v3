@@ -2,11 +2,12 @@ import Avatar from '@mui/material/Avatar';
 import './VideoCard.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const API_KEY = 'AIzaSyCqmcxxNLND-_tIH4Bku95pNl1IrIrKD04';
 
 
-const VideoCard = ({ channelId, image, title, channel, views, timestamp }) => {
+const VideoCard = ({ videoId, channelId, image, title, channel, views, timestamp }) => {
     const [avatar, setAvatar] = useState('');
     useEffect(() => {
         axios.get(`https://youtube.googleapis.com/youtube/v3/channels?part=snippet&id=${channelId}&key=${API_KEY}`)
@@ -18,18 +19,19 @@ const VideoCard = ({ channelId, image, title, channel, views, timestamp }) => {
             });
     }, []);
     return (
-        <div className="videoCard">
-            <img className='videoCard__thumbnail' src={image} alt="" />
-            <div className="videoCard__info">
-                <Avatar className='videoCard__avatar' alt={channel} src={avatar} />
-                <div className='videoCard__text'>
-                    <h4>{title}</h4>
-                    <p>{channel}</p>
-                    <p>{views}<b> . </b>{timestamp}</p>
-                </div>
+        <Link to={`/video/${videoId}`}>
+            <div className="videoCard">
+                <img className='videoCard__thumbnail' src={image} alt="" />
+                <div className="videoCard__info">
+                    <Avatar className='videoCard__avatar' alt={channel} src={avatar} />
+                    <div className='videoCard__text'>
+                        <h4>{title}</h4>
+                        <p>{channel}</p>
+                        <p>{views}<b> . </b>{timestamp}</p>
+                    </div>
 
-            </div>
-        </div>
+                </div>
+            </div></Link>
     )
 }
 

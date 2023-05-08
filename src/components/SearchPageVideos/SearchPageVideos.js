@@ -40,7 +40,7 @@ const SearchPageVideos = () => {
             })
             .catch(err => console.log(err));
 
-    }, []);
+    }, [searchText]);
 
     return (
         <div className='searchPageVideos'>
@@ -72,7 +72,7 @@ const SearchPageVideos = () => {
                 {videos.map((video) => <VideoRow
                     key={nextId()}
                     channelId={video.snippet.channelId}
-                    image={video.snippet.thumbnails.high.url}
+                    image={video.snippet.thumbnails.medium.url}
                     title={video.snippet.title}
                     views='2M Views'
                     timestamp={video.snippet.publishedAt}

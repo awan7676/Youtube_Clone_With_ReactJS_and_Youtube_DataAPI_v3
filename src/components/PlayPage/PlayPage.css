@@ -1,0 +1,51 @@
+.playPage {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: white;
+}
+
+.left {
+    flex-basis: 16%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: white;
+}
+
+.right {
+    flex-basis: 84%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: white;
+}
+
+.main__section {
+    display: flex;
+    justify-content: center;
+    /* gap: 2rem; */
+    flex-wrap: wrap;
+}
+
+.video__player {
+    flex-basis: 65%;
+    padding-left: 2rem;
+    margin-top: 2rem;
+}
+
+.related__videos {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 35%;
+    flex-grow: 2;
+    margin-top: 2rem;
+    padding: 0 2rem 2rem 2rem;
+    gap: 1rem;
+}

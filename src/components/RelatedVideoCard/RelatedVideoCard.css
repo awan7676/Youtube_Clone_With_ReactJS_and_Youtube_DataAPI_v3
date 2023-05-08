@@ -1,0 +1,19 @@
+.relatedVideoCard {
+    display: flex;
+    gap: 1rem;
+}
+
+.relatedVideoCard__thumbnail {
+    width: 12rem !important;
+    height: 8rem !important;
+}
+
+.relatedVideoCard__info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.relatedVideoCard__info>p {
+    color: gray;
+}

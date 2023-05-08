@@ -9,8 +9,9 @@ const RecommendedVideos = ({ videos }) => {
             <div className='videos'>
                 {videos.map((video) => <VideoCard
                     key={video.id}
+                    videoId={video.id}
                     channelId={video.snippet.channelId}
-                    image={video.snippet.thumbnails.high.url}
+                    image={video.snippet.thumbnails.medium.url}
                     title={video.snippet.title}
                     channel={video.snippet.channelTitle}
                     views={video.statistics.viewCount}
