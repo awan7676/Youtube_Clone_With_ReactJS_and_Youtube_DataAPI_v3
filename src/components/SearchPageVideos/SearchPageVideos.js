@@ -7,8 +7,6 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import nextId from 'react-id-generator';
 
-const API_KEY = 'AIzaSyCqmcxxNLND-_tIH4Bku95pNl1IrIrKD04';
-
 const SearchPageVideos = () => {
     let { searchText } = useParams();
     const [videos, setVideos] = useState([]);
