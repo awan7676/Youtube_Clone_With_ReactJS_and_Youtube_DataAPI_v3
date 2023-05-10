@@ -7,7 +7,6 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import { useParams } from "react-router-dom"
 
-const API_KEY = 'AIzaSyCqmcxxNLND-_tIH4Bku95pNl1IrIrKD04';
 const PlayPage = () => {
     let { videoId } = useParams();
     const [selectedVideo, setSelectedVideo] = useState([]);
