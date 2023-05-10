@@ -1,16 +1,16 @@
 import './HomePage.css';
+import { ApiContext } from '../../contexts/ApiContext';
 import HeaderLeft from '../Header/HeaderLeft/HeaderLeft';
 import HeaderRight from '../Header/HeaderRight/HeaderRight';
 import Sidebar from '../Sidebar/Sidebar';
 import RecommendedVideos from '../RecommendedVideos/RecommendedVideos'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-
-const API_KEY = 'AIzaSyCqmcxxNLND-_tIH4Bku95pNl1IrIrKD04';
 const HomePage = () => {
+    const { API_KEY } = useContext(ApiContext);
     const [videos, setVideos] = useState([]);
     useEffect(() => {
-        axios.get(`https://youtube.googleapis.com/youtube/v3/videos?part=id&part=snippet&part=statistics&chart=mostPopular&maxResults=15&key=${API_KEY}`)
+        axios.get(`https://youtube.googleapis.com/youtube/v3/videos?part=id&part=snippet&part=statistics&chart=mostPopular&maxResults=15&key=${API_KEY}`, { timeout: 5000 })
             .then((response) => {
                 setVideos(response.data.items);
             })

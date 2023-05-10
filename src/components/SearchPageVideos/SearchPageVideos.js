@@ -1,27 +1,28 @@
 import './SearchPageVideos.css';
+import { ApiContext } from '../../contexts/ApiContext';
 import ChannelRow from '../ChannelRow/ChannelRow';
 import VideoRow from '../VideoRow/VideoRow';
 import TuneIcon from '@mui/icons-material/Tune';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import nextId from 'react-id-generator';
 
-const API_KEY = 'AIzaSyCqmcxxNLND-_tIH4Bku95pNl1IrIrKD04';
 
 const SearchPageVideos = () => {
+    const { API_KEY } = useContext(ApiContext);
     let { searchText } = useParams();
     const [videos, setVideos] = useState([]);
     const [channel, setChannel] = useState([]);
     const [isChannel, setIsChannel] = useState(false);
 
     const checkChannel = () => {
-        axios.get(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&q=${searchText}&type=channel&part=snippet&part=id`, { timeout: 3000 })
+        axios.get(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&q=${searchText}&type=channel&part=snippet&part=id`, { timeout: 5000 })
             .then(response => {
                 const channels = response.data.items;
                 if (channels.length > 0) {
                     const channelId = channels[0].id.channelId;
-                    axios.get(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${channelId}&type=channel&part=snippet`, { timeout: 3000 })
+                    axios.get(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${channelId}&type=channel&part=snippet`, { timeout: 5000 })
                         .then((response) => setChannel(response.data.items))
                         .catch(err => console.log(err));
                     setIsChannel(true);
@@ -34,7 +35,7 @@ const SearchPageVideos = () => {
 
     useEffect(() => {
         checkChannel();
-        axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${searchText}&type=video&videoDefinition=high&videoEmbeddable=true&key=${API_KEY}`, { timeout: 3000 })
+        axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${searchText}&type=video&videoDefinition=high&videoEmbeddable=true&key=${API_KEY}`, { timeout: 5000 })
             .then((response) => {
                 setVideos(response.data.items);
             })

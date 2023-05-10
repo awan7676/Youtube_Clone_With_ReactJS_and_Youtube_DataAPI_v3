@@ -1,16 +1,15 @@
 import Avatar from '@mui/material/Avatar';
+import { ApiContext } from '../../contexts/ApiContext';
 import './VideoCard.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-const API_KEY = 'AIzaSyCqmcxxNLND-_tIH4Bku95pNl1IrIrKD04';
-
-
 const VideoCard = ({ videoId, channelId, image, title, channel, views, timestamp }) => {
+    const { API_KEY } = useContext(ApiContext);
     const [avatar, setAvatar] = useState('');
     useEffect(() => {
-        axios.get(`https://youtube.googleapis.com/youtube/v3/channels?part=snippet&id=${channelId}&key=${API_KEY}`)
+        axios.get(`https://youtube.googleapis.com/youtube/v3/channels?part=snippet&id=${channelId}&key=${API_KEY}`, { timeout: 5000 })
             .then(response => {
                 setAvatar(response.data.items[0].snippet.thumbnails.default.url);
             })
