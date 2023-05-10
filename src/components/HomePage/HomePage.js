@@ -6,10 +6,7 @@ import Sidebar from '../Sidebar/Sidebar';
 import RecommendedVideos from '../RecommendedVideos/RecommendedVideos'
 import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-<<<<<<< HEAD
-=======
 
->>>>>>> ec0c8598ee143457769e4fd9eab41bc3de94183e
 const HomePage = () => {
     const { API_KEY } = useContext(ApiContext);
     const [videos, setVideos] = useState([]);
