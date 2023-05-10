@@ -8,7 +8,10 @@ import { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import nextId from 'react-id-generator';
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> ec0c8598ee143457769e4fd9eab41bc3de94183e
 const SearchPageVideos = () => {
     const { API_KEY } = useContext(ApiContext);
     let { searchText } = useParams();

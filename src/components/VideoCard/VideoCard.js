@@ -5,6 +5,10 @@ import { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> ec0c8598ee143457769e4fd9eab41bc3de94183e
 const VideoCard = ({ videoId, channelId, image, title, channel, views, timestamp }) => {
     const { API_KEY } = useContext(ApiContext);
     const [avatar, setAvatar] = useState('');
