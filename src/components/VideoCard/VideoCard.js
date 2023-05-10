@@ -4,8 +4,6 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-const API_KEY = 'AIzaSyCqmcxxNLND-_tIH4Bku95pNl1IrIrKD04';
-
 
 const VideoCard = ({ videoId, channelId, image, title, channel, views, timestamp }) => {
     const [avatar, setAvatar] = useState('');
