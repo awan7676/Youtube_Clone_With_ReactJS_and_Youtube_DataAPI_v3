@@ -1,18 +1,19 @@
+import { ApiContext } from "../../contexts/ApiContext"
 import VideoPlayer from "../VideoPlayer/VideoPlayer"
 import HeaderLeft from "../Header/HeaderLeft/HeaderLeft"
 import HeaderRight from "../Header/HeaderRight/HeaderRight"
 import RelatedVideoCard from "../RelatedVideoCard/RelatedVideoCard"
 import './PlayPage.css'
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
 import axios from "axios"
 import { useParams } from "react-router-dom"
 
-const API_KEY = 'AIzaSyCqmcxxNLND-_tIH4Bku95pNl1IrIrKD04';
 const PlayPage = () => {
+    const { API_KEY } = useContext(ApiContext);
     let { videoId } = useParams();
     const [selectedVideo, setSelectedVideo] = useState([]);
     useEffect(() => {
-        axios.get(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet&part=statistics&id=${videoId}&key=${API_KEY}`)
+        axios.get(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet&part=statistics&id=${videoId}&key=${API_KEY}`, { timeout: 5000 })
             .then((response) => setSelectedVideo(response.data.items))
             .catch(err => console.log(err));
     }, [videoId])
