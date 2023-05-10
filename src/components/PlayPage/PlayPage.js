@@ -3,8 +3,19 @@ import HeaderLeft from "../Header/HeaderLeft/HeaderLeft"
 import HeaderRight from "../Header/HeaderRight/HeaderRight"
 import RelatedVideoCard from "../RelatedVideoCard/RelatedVideoCard"
 import './PlayPage.css'
+import { useEffect, useState } from "react"
+import axios from "axios"
+import { useParams } from "react-router-dom"
 
+const API_KEY = 'AIzaSyCqmcxxNLND-_tIH4Bku95pNl1IrIrKD04';
 const PlayPage = () => {
+    let { videoId } = useParams();
+    const [selectedVideo, setSelectedVideo] = useState([]);
+    useEffect(() => {
+        axios.get(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet&part=statistics&id=${videoId}&key=${API_KEY}`)
+            .then((response) => setSelectedVideo(response.data.items))
+            .catch(err => console.log(err));
+    }, [videoId])
     return (
 
         <div className="playPage">
@@ -18,7 +29,7 @@ const PlayPage = () => {
             </div>
             <div className="main__section">
                 <div className="video__player">
-                    <VideoPlayer />
+                    <VideoPlayer videoId={videoId} selectedVideo={selectedVideo} />
                 </div>
                 <div className="related__videos">
                     <RelatedVideoCard

@@ -15,5 +15,6 @@
 }
 
 .relatedVideoCard__info>p {
+    font-size: 0.875rem;
     color: gray;
 }

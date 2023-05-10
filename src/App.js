@@ -11,8 +11,8 @@ function App() {
   return (
     <ThemeContextProvider>
       <div className="app">
-        <PlayPage />
-        {/* <Routes>
+        {/* <PlayPage /> */}
+        <Routes>
           <Route path='/' element={
             <HomePage />
           } />
@@ -22,9 +22,9 @@ function App() {
           } />
 
           <Route path='/video/:videoId' element={
-            <VideoPlayer />
+            <PlayPage />
           } />
-        </Routes> */}
+        </Routes>
       </div>
     </ThemeContextProvider>
   );

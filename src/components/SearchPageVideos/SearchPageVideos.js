@@ -16,12 +16,12 @@ const SearchPageVideos = () => {
     const [isChannel, setIsChannel] = useState(false);
 
     const checkChannel = () => {
-        axios.get(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&q=${searchText}&type=channel&part=snippet&part=id`)
+        axios.get(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&q=${searchText}&type=channel&part=snippet&part=id`, { timeout: 3000 })
             .then(response => {
                 const channels = response.data.items;
                 if (channels.length > 0) {
                     const channelId = channels[0].id.channelId;
-                    axios.get(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${channelId}&type=channel&part=snippet`)
+                    axios.get(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${channelId}&type=channel&part=snippet`, { timeout: 3000 })
                         .then((response) => setChannel(response.data.items))
                         .catch(err => console.log(err));
                     setIsChannel(true);
@@ -34,7 +34,7 @@ const SearchPageVideos = () => {
 
     useEffect(() => {
         checkChannel();
-        axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${searchText}&type=video&videoDefinition=high&videoEmbeddable=true&key=${API_KEY}`)
+        axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${searchText}&type=video&videoDefinition=high&videoEmbeddable=true&key=${API_KEY}`, { timeout: 3000 })
             .then((response) => {
                 setVideos(response.data.items);
             })
@@ -50,6 +50,7 @@ const SearchPageVideos = () => {
             </div>
             <hr />
             {isChannel && channel.map((channel) => <ChannelRow
+                key={nextId()}
                 image={channel.snippet.thumbnails.high.url}
                 channelTitle={channel.snippet.channelTitle}
                 verified
@@ -70,7 +71,7 @@ const SearchPageVideos = () => {
 
             <div className='searchPageVideos__Videos'>
                 {videos.map((video) => <VideoRow
-                    key={nextId()}
+                    key={video.id.videoId}
                     channelId={video.snippet.channelId}
                     image={video.snippet.thumbnails.medium.url}
                     title={video.snippet.title}

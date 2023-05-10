@@ -1,0 +1,19 @@
+.player-wrapper {
+  padding: 2rem 1rem 2rem 2rem;
+}
+
+/* .react-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+} */
+
+/* @media screen and (max-width: 984px) {
+  .react-player {
+    width: 100vw;
+  }
+} */
+
+iframe {
+  display: block;
+}

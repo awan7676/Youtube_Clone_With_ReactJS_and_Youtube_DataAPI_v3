@@ -1,30 +1,18 @@
-import { useEffect, useState } from "react";
 import './VideoPlayer.css';
 import ReactPlayer from "react-player/youtube";
-import axios from "axios";
-import { useParams } from "react-router-dom";
-const API_KEY = 'AIzaSyCqmcxxNLND-_tIH4Bku95pNl1IrIrKD04';
-const VideoPlayer = () => {
-    // let { videoId } = useParams();
-    const [selectedVideo, setSelectedVideo] = useState([]);
-    // useEffect(() => {
-    //     axios.get(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet&part=statistics&id=${videoId}&key=${API_KEY}`)
-    //         .then((response) => setSelectedVideo(response.data.items))
-    //         .catch(err => console.log(err));
-    // }, [videoId])
+const VideoPlayer = ({ videoId, selectedVideo }) => {
     return (
         <div className="player-wrapper">
-            <ReactPlayer
+            {/* <ReactPlayer
                 className="react-player"
                 url={`https://www.youtube.com/watch?v=ysz5S6PUM-U`}
                 controls
                 // width='57rem'
                 width='100%'
-                height='34rem'
-            />
+                height='480'
+            /> */}
+            {/* <iframe width="100%" height="480" src={`https://www.youtube.com/embed/${videoId}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; fullscreen;clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe> */}
         </div>
-
-
 
     )
 }
