@@ -6,7 +6,6 @@ import RecommendedVideos from '../RecommendedVideos/RecommendedVideos'
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const API_KEY = 'AIzaSyCqmcxxNLND-_tIH4Bku95pNl1IrIrKD04';
 const HomePage = () => {
     const [videos, setVideos] = useState([]);
     useEffect(() => {
