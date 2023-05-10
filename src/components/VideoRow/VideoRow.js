@@ -1,13 +1,13 @@
 import './VideoRow.css';
+import { ApiContext } from '../../contexts/ApiContext';
 import Avatar from '@mui/material/Avatar';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-const API_KEY = 'AIzaSyCqmcxxNLND-_tIH4Bku95pNl1IrIrKD04';
 
 const VideoRow = ({ videoId, channelId, image, title, views, timestamp, channel, verified, description }) => {
-    console.log(videoId);
+    const { API_KEY } = useContext(ApiContext);
     const [isHover, setIsHover] = useState(false);
     const [avatar, setAvatar] = useState('');
     useEffect(() => {
