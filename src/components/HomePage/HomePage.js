@@ -4,9 +4,12 @@ import HeaderLeft from '../Header/HeaderLeft/HeaderLeft';
 import HeaderRight from '../Header/HeaderRight/HeaderRight';
 import Sidebar from '../Sidebar/Sidebar';
 import RecommendedVideos from '../RecommendedVideos/RecommendedVideos'
-import { useState, useEffect, useContext } from 'react';
+import { useContext } from 'react';
+import { ThemeContext } from '../../contexts/ThemeContext';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 const HomePage = () => {
+    const { isLightTheme } = useContext(ThemeContext);
     const { API_KEY } = useContext(ApiContext);
     const [videos, setVideos] = useState([]);
     useEffect(() => {
@@ -17,7 +20,7 @@ const HomePage = () => {
             .catch(err => console.log(err));
     }, []);
     return (
-        <div className='home'>
+        <div className={`home ${isLightTheme && 'darkTheme'}`}>
             <div className='column' id='left'>
                 <HeaderLeft />
                 <Sidebar />

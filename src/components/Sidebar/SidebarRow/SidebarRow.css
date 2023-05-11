@@ -11,6 +11,10 @@
     cursor: pointer;
 }
 
+.sidebarRow.darkTheme:hover {
+    background-color: rgb(41, 39, 39);
+}
+
 .sidebarRow__icon {
     font-size: larger !important;
 }
@@ -31,6 +35,10 @@
 
 .selected {
     background-color: lightgray;
+}
+
+.selected.darkTheme {
+    background-color: rgb(41, 39, 39);
 }
 
 .selected>.sidebarRow__icon {

@@ -109,7 +109,6 @@ iframe {
 
 .share__btn:hover {
   background-color: lightgray;
-
 }
 
 .more__icon {
@@ -158,6 +157,46 @@ iframe {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.like__icon.darkTheme {
+  background-color: rgb(34, 34, 34);
+}
+
+.like__icon.darkTheme:hover {
+  background-color: rgb(55, 55, 55);
+}
+
+.dislike__icon.darkTheme {
+  background-color: rgb(34, 34, 34);
+}
+
+.dislike__icon.darkTheme:hover {
+  background-color: rgb(55, 55, 55);
+}
+
+.share__btn.darkTheme {
+  background-color: rgb(34, 34, 34);
+}
+
+.share__btn.darkTheme:hover {
+  background-color: rgb(55, 55, 55);
+}
+
+.more__icon.darkTheme {
+  background-color: rgb(34, 34, 34);
+}
+
+.more__icon.darkTheme:hover {
+  background-color: rgb(55, 55, 55);
+}
+
+.video__description.darkTheme {
+  background-color: rgb(34, 34, 34);
+}
+
+.video__description.darkTheme:hover {
+  background-color: rgb(55, 55, 55);
 }
 
 @media screen and (max-width:990px) {

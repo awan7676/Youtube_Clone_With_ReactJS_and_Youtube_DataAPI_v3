@@ -5,10 +5,12 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
+import { ThemeContext } from '../../contexts/ThemeContext';
 import { Link } from 'react-router-dom';
 
 const VideoRow = ({ videoId, channelId, image, title, views, timestamp, channel, verified, description }) => {
     const { API_KEY } = useContext(ApiContext);
+    const { isLightTheme } = useContext(ThemeContext);
     const [isHover, setIsHover] = useState(false);
     const [avatar, setAvatar] = useState('');
     useEffect(() => {
@@ -28,7 +30,7 @@ const VideoRow = ({ videoId, channelId, image, title, views, timestamp, channel,
                 <div className='videoRow__Info'>
                     <div className='videoRow__title'>
                         <h4>{title}</h4>
-                        <MoreVertIcon className={`videoRow__titleDotsIcon ${!isHover && 'hidden'}`} />
+                        <MoreVertIcon className={`videoRow__titleDotsIcon ${isLightTheme && 'darkTheme'} ${!isHover && 'hidden'}`} />
                     </div>
                     <p>{views}<b> . </b>{timestamp}</p>
                     <div className='videoRow__ChannelInfo'>

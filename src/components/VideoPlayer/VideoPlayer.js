@@ -9,10 +9,12 @@ import { ApiContext } from '../../contexts/ApiContext';
 import ThumbUpOffAltOutlinedIcon from '@mui/icons-material/ThumbUpOffAltOutlined';
 import ThumbDownOffAltOutlinedIcon from '@mui/icons-material/ThumbDownOffAltOutlined';
 import { useState, useEffect, useContext } from 'react';
+import { ThemeContext } from '../../contexts/ThemeContext';
 import axios from 'axios';
 
 
 const VideoPlayer = ({ videoId, title, description, channelId }) => {
+    const { isLightTheme } = useContext(ThemeContext);
     const { API_KEY } = useContext(ApiContext);
     const [videoChannel, setVideoChannel] = useState([]);
     useEffect(() => {
@@ -41,27 +43,27 @@ const VideoPlayer = ({ videoId, title, description, channelId }) => {
                         </div>)}
                     <div className='video__btns'>
                         <div className='like__btn'>
-                            <div className='like__icon'>
+                            <div className={`like__icon ${isLightTheme && 'darkTheme'}`}>
                                 <ThumbUpOffAltOutlinedIcon style={{ fontSize: '1.25rem' }} />
                                 <span>32K</span>
                             </div>
                             {/* <span>|</span> */}
-                            <div className='dislike__icon'>
+                            <div className={`dislike__icon ${isLightTheme && 'darkTheme'}`}>
                                 <ThumbDownOffAltOutlinedIcon style={{ fontSize: '1.25rem' }} />
                             </div>
                         </div>
 
-                        <div className='share__btn'>
+                        <div className={`share__btn ${isLightTheme && 'darkTheme'}`}>
                             <ShareIcon style={{ fontSize: '1.25rem' }} />
                             <span>Share</span>
                         </div>
 
-                        <div className='more__icon'>
+                        <div className={`more__icon ${isLightTheme && 'darkTheme'}`}>
                             <MoreHorizIcon style={{ fontSize: '1.25rem' }} />
                         </div>
                     </div>
                 </div>
-                <div className='video__description'>
+                <div className={`video__description ${isLightTheme && 'darkTheme'}`}>
                     <div className='video__stats'>
                         <span><b>127K views</b></span>
                         <span><b>14 hourse ago</b></span>

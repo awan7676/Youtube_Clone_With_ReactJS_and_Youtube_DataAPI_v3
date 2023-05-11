@@ -9,8 +9,11 @@ import MusicNoteOutlinedIcon from '@mui/icons-material/MusicNoteOutlined';
 import PodcastsOutlinedIcon from '@mui/icons-material/PodcastsOutlined';
 import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
 import SportsEsportsOutlinedIcon from '@mui/icons-material/SportsEsportsOutlined';
+import LightModeIcon from '@mui/icons-material/LightMode';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
 import nextId from 'react-id-generator';
-import { useState } from 'react';
+import { ThemeContext } from '../../contexts/ThemeContext';
+import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 const SidebarMainRows = [
@@ -29,9 +32,10 @@ const SidebarOtherRows = [
 ];
 
 const Sidebar = () => {
+    const { isLightTheme, toggleTheme } = useContext(ThemeContext);
     const [selectedCategory, setSelectedCategory] = useState('Home');
     return (
-        <div className='sidebar'>
+        <div className={`sidebar ${isLightTheme && 'darkTheme'}`}>
             {SidebarMainRows.map((row) => {
                 return (
                     <Link to={`search/${row.title}`} className='sidebar__link' key={nextId()} >
@@ -51,20 +55,12 @@ const Sidebar = () => {
             })}
             <br />
             <hr />
-            {/* <SidebarRow selected Icon={HomeIcon} title="Home" />
-            <SidebarRow Icon={WhatshotIcon} title="Trending" />
-            <SidebarRow Icon={SubscriptionsOutlinedIcon} title="Subscriptions" />
             <br />
-            <hr />
-            <br />
-            <SidebarRow Icon={VideoLibraryOutlinedIcon} title="Library" />
-            <SidebarRow Icon={HistoryOutlinedIcon} title="History" />
-            <SidebarRow Icon={SlideshowOutlinedIcon} title="Your Videos" />
-            <SidebarRow Icon={WatchLaterOutlinedIcon} title="Watch Later" />
-            <SidebarRow Icon={ThumbUpOutlinedIcon} title="Liked Videos" />
-            <SidebarRow Icon={ExpandMoreOutlinedIcon} title="Show More" />
-            <br />
-            <hr /> */}
+            <div className={`theme__row ${isLightTheme && 'darkTheme'}`} onClick={() => toggleTheme()}>
+                {isLightTheme ? <DarkModeIcon /> : <LightModeIcon />}
+                <h2 className='theme__title'>{isLightTheme ? 'Dark Mode' : 'Light Mode'}</h2>
+            </div>
+
         </div>
     )
 }

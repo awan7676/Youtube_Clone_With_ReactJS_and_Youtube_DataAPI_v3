@@ -22,3 +22,8 @@
     height: 25px;
     object-fit: contain;
 }
+
+
+.darkTheme>.header__menuButton:hover {
+    background-color: rgb(41, 39, 39)
+}

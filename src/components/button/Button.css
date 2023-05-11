@@ -10,3 +10,12 @@
 .btn:hover {
     background-color: rgb(42, 41, 41);
 }
+
+.btn.darkTheme {
+    background-color: white;
+    color: black;
+}
+
+.btn.darkTheme:hover {
+    background-color: rgb(205, 201, 201);
+}

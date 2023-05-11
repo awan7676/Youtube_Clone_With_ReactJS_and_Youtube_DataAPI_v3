@@ -15,3 +15,8 @@ a {
   color: unset;
   text-decoration: none;
 }
+
+.darkTheme {
+  background-color: rgb(12, 12, 12);
+  color: white;
+}

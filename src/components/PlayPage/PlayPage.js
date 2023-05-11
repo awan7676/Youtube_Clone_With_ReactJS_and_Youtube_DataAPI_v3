@@ -7,8 +7,11 @@ import './PlayPage.css'
 import { useEffect, useState, useContext } from "react"
 import axios from "axios"
 import { useParams } from "react-router-dom"
+import { ThemeContext } from "../../contexts/ThemeContext"
+
 
 const PlayPage = () => {
+    const { isLightTheme } = useContext(ThemeContext);
     const { API_KEY } = useContext(ApiContext);
     let { videoId } = useParams();
     const [relatedVideos, setRelatedVideos] = useState([]);
@@ -30,7 +33,7 @@ const PlayPage = () => {
     }, [videoId])
     return (
 
-        <div className="playPage">
+        <div className={`playPage ${isLightTheme && 'darkTheme'}`}>
             <div className="header">
                 <div className="left" >
                     <HeaderLeft />

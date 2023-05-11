@@ -30,6 +30,15 @@
     padding: 5px;
 }
 
+.header__inputButton.darkTheme {
+    background-color: rgb(44, 43, 43);
+    color: white;
+}
+
+.header__inputButton.darkTheme:hover {
+    background-color: rgb(34, 34, 34);
+}
+
 .header__inputButton:hover {
     cursor: pointer;
     background-color: lightgray
@@ -61,6 +70,11 @@
 .header__AvatarIcon {
     cursor: pointer;
 }
+
+.header__icon.darkTheme:hover {
+    background-color: rgb(41, 39, 39);
+}
+
 
 @media screen and (max-width: 767px) {
     .header__input {

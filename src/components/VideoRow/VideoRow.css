@@ -35,11 +35,14 @@
     border-radius: 50%;
     width: 2rem !important;
     height: 2rem !important;
-
 }
 
 .videoRow__titleDotsIcon:hover {
     background-color: lightgray;
+}
+
+.videoRow__titleDotsIcon.darkTheme:hover {
+    background-color: rgb(55, 55, 55);
 }
 
 .hidden {
