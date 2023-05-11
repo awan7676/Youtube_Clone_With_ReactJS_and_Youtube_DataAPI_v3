@@ -12,6 +12,7 @@ const PlayPage = () => {
     const { API_KEY } = useContext(ApiContext);
     let { videoId } = useParams();
     const [selectedVideo, setSelectedVideo] = useState([]);
+
     useEffect(() => {
         axios.get(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet&part=statistics&id=${videoId}&key=${API_KEY}`, { timeout: 5000 })
             .then((response) => setSelectedVideo(response.data.items))
@@ -30,7 +31,13 @@ const PlayPage = () => {
             </div>
             <div className="main__section">
                 <div className="video__player">
-                    <VideoPlayer videoId={videoId} selectedVideo={selectedVideo} />
+                    {selectedVideo.map((video) =>
+                        <VideoPlayer videoId={videoId}
+                            key={videoId}
+                            title={video.snippet.title}
+                            description={video.snippet.description}
+                            channelId={video.snippet.channelId}
+                        />)}
                 </div>
                 <div className="related__videos">
                     <RelatedVideoCard

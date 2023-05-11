@@ -34,7 +34,7 @@ const SearchPageVideos = () => {
 
     useEffect(() => {
         checkChannel();
-        axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${searchText}&type=video&videoDefinition=high&videoEmbeddable=true&key=${API_KEY}`, { timeout: 5000 })
+        axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&part=id&maxResults=5&q=${searchText}&type=video&videoDefinition=high&videoEmbeddable=true&key=${API_KEY}`, { timeout: 5000 })
             .then((response) => {
                 setVideos(response.data.items);
             })
@@ -72,6 +72,7 @@ const SearchPageVideos = () => {
             <div className='searchPageVideos__Videos'>
                 {videos.map((video) => <VideoRow
                     key={video.id.videoId}
+                    videoId={video.id.videoId}
                     channelId={video.snippet.channelId}
                     image={video.snippet.thumbnails.medium.url}
                     title={video.snippet.title}
