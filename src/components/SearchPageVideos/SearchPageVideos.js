@@ -59,14 +59,6 @@ const SearchPageVideos = () => {
                 description={channel.snippet.description}
 
             />)}
-            {/* {<ChannelRow
-                image='https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg'
-                channel='Traversy Media'
-                verified
-                subs="660K subscribers"
-                noOfVideos={382}
-                description="You can find awesome programming lessons here! Also, expect programming tips and tricks that will take your coding skills to the next level."
-            />} */}
             <hr />
 
             <div className='searchPageVideos__Videos'>
