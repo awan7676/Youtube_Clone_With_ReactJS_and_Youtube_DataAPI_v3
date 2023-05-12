@@ -26,6 +26,32 @@
 }
 
 
+.headerInput__Responsive {
+    display: flex;
+    align-items: center;
+    border: 1px solid lightgray;
+    border-radius: 50px;
+    justify-content: space-between;
+    flex-shrink: 2;
+}
+
+.headerInput__Responsive.darkTheme {
+    border: 1px solid rgb(46, 45, 45);
+}
+
+.responsive__searchBar {
+    display: flex;
+}
+
+.responsive__searchBar>input {
+    flex: 1;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    padding-left: 1rem;
+}
+
+
 .header__inputButton {
     background-color: #fafafa;
     color: black;
@@ -53,8 +79,21 @@
     width: 3rem !important;
 }
 
+.header__closeIcon {
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+
 
 .header__icons {
+    display: flex;
+    align-items: center;
+}
+
+.header__visibleIcons {
     display: flex;
     align-items: center;
 }
@@ -81,8 +120,22 @@
 }
 
 
+
+
 @media screen and (max-width: 767px) {
     .header__input {
+        display: none;
+    }
+
+}
+
+@media screen and (min-width: 767px) {
+    .search__icon {
+        visibility: hidden;
+    }
+
+
+    .headerInput__Responsive {
         display: none;
     }
 }

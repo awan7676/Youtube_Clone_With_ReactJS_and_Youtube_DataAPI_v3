@@ -23,7 +23,6 @@ const VideoPlayer = ({ videoId, title, description, channelId, views, timestamp 
         axios.get(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${channelId}&type=channel&part=snippet`, { timeout: 5000 })
             .then((response) => setVideoChannel(response.data.items))
             .catch(err => console.log(err));
-        console.log(videoChannel);
     }, []);
     return (
         <div className="player-wrapper">
