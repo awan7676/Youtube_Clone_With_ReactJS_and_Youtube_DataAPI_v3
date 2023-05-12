@@ -23,7 +23,7 @@ const SearchPageVideos = () => {
                 const channels = response.data.items;
                 if (channels.length > 0) {
                     const channelId = channels[0].id.channelId;
-                    axios.get(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${channelId}&type=channel&part=snippet`, { timeout: 5000 })
+                    axios.get(`https://youtube.googleapis.com/youtube/v3/channels?part=snippet&part=statistics&id=${channelId}&key=${API_KEY}`, { timeout: 5000 })
                         .then((response) => setChannel(response.data.items))
                         .catch(err => console.log(err));
                     setIsChannel(true);
@@ -54,10 +54,10 @@ const SearchPageVideos = () => {
             {isChannel && channel.map((channel) => <ChannelRow
                 key={nextId()}
                 image={channel.snippet.thumbnails.default.url}
-                channelTitle={channel.snippet.channelTitle}
+                channelTitle={channel.snippet.title}
                 verified
-                subs="660K subscribers"
-                noOfVideos={382}
+                subs={channel.statistics.subscriberCount}
+                noOfVideos={channel.statistics.videoCount}
                 description={channel.snippet.description}
 
             />)}
@@ -65,7 +65,7 @@ const SearchPageVideos = () => {
 
             <div className='searchPageVideos__Videos'>
                 {videos.map((video) => <VideoRow
-                    key={video.id.videoId}
+                    key={nextId()}
                     videoId={video.id.videoId}
                     channelId={video.snippet.channelId}
                     image={video.snippet.thumbnails.medium.url}

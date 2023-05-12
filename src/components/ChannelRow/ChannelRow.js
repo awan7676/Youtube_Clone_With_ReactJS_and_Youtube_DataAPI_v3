@@ -1,6 +1,7 @@
 import './ChannelRow.css';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import Button from '../button/Button';
+import { formatter } from '../../utils/formatter';
 
 const ChannelRow = ({ image, channelTitle, verified, subs, noOfVideos, description }) => {
     return (
@@ -11,7 +12,7 @@ const ChannelRow = ({ image, channelTitle, verified, subs, noOfVideos, descripti
                     <h3>{channelTitle}</h3>
                     {<CheckCircleIcon style={{ color: 'gray', fontSize: '1rem' }} />}
                 </div>
-                <p>{noOfVideos} videos<b> . </b>{subs}</p>
+                <p>{formatter(noOfVideos)} videos<b> . </b>{formatter(subs)} subscribers</p>
                 <p>{description}</p>
             </div>
             <Button text='Subscribe' />

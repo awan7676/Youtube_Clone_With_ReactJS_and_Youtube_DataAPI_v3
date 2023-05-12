@@ -37,7 +37,7 @@ const Sidebar = () => {
         <div className={`sidebar ${isLightTheme && 'darkTheme'}`}>
             {SidebarMainRows.map((row) => {
                 return (
-                    <Link to={`/search/${row.title}`} className='sidebar__link' key={nextId()} >
+                    <Link to={`${row.title === "Home" ? '/' : `/search/${row.title}`}`} className='sidebar__link' key={nextId()} >
                         <SidebarRow Icon={row.Icon} title={row.title} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
                     </Link>
                 )
