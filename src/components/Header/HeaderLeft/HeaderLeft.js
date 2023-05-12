@@ -9,7 +9,7 @@ const HeaderLeft = () => {
         <div className={`header__left ${isLightTheme && 'darkTheme'}`}>
             <MenuIcon className='header__menuButton' />
             <Link to='/'>
-                <img className='header__logo' src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/1024px-YouTube_Logo_2017.svg.png" alt="icon.png" />
+                <img className='header__logo' src="/logo.png" alt="logo.png" />
             </Link>
         </div>
     )

@@ -45,10 +45,6 @@
     background-color: rgb(55, 55, 55);
 }
 
-.hidden {
-    visibility: hidden;
-}
-
 .videoRow__Info>p {
     color: gray;
     font-size: 13px;

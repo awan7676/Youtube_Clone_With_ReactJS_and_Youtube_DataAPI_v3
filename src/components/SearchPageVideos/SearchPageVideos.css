@@ -19,6 +19,10 @@
     background-color: lightgray;
 }
 
+.searchPageVideos__filter.darkTheme:hover {
+    background-color: rgb(41, 39, 39);
+}
+
 .searchPageVideos__Videos {
     /* margin-top: 2rem; */
     padding: 2rem;

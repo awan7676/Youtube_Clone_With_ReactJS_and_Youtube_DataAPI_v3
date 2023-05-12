@@ -11,6 +11,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body.dark {
+  background-color: rgb(12, 12, 12);
+}
+
 a {
   color: unset;
   text-decoration: none;
@@ -19,4 +23,9 @@ a {
 .darkTheme {
   background-color: rgb(12, 12, 12);
   color: white;
+}
+
+
+.hidden {
+  visibility: hidden;
 }

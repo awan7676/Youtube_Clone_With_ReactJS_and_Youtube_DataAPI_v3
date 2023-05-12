@@ -4,9 +4,10 @@ import { useState } from "react";
 export const ThemeContext = createContext();
 
 const ThemeContextProvider = ({ children }) => {
-    const [isLightTheme, setIsLightTheme] = useState(true);
+    const [isLightTheme, setIsLightTheme] = useState(false);
     const toggleTheme = () => {
         setIsLightTheme(!isLightTheme);
+        document.body.className = `${isLightTheme ? 'light' : 'dark'}`;
     }
     return (
         <ThemeContext.Provider value={{ isLightTheme, toggleTheme }}>

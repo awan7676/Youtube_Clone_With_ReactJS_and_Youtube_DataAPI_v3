@@ -28,7 +28,6 @@ const SidebarOtherRows = [
     { Icon: FitnessCenterOutlinedIcon, title: "Sport" },
     { Icon: PodcastsOutlinedIcon, title: "Podcast" },
     { Icon: MusicNoteOutlinedIcon, title: "Music" },
-    { Icon: ExpandMoreOutlinedIcon, title: "Show More" },
 ];
 
 const Sidebar = () => {
@@ -38,7 +37,7 @@ const Sidebar = () => {
         <div className={`sidebar ${isLightTheme && 'darkTheme'}`}>
             {SidebarMainRows.map((row) => {
                 return (
-                    <Link to={`search/${row.title}`} className='sidebar__link' key={nextId()} >
+                    <Link to={`/search/${row.title}`} className='sidebar__link' key={nextId()} >
                         <SidebarRow Icon={row.Icon} title={row.title} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
                     </Link>
                 )
@@ -48,17 +47,21 @@ const Sidebar = () => {
             <br />
             {SidebarOtherRows.map((row) => {
                 return (
-                    <Link to={`search/${row.title}`} className='sidebar__link' key={nextId()} >
+                    <Link to={`/search/${row.title}`} className='sidebar__link' key={nextId()} >
                         <SidebarRow Icon={row.Icon} title={row.title} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
                     </Link>
                 )
             })}
+            <div className={`expand__btn ${isLightTheme && 'darkTheme'}`}>
+                <ExpandMoreOutlinedIcon className='expand__icon' />
+                <h2 className='expand__title'>Show More</h2>
+            </div>
             <br />
             <hr />
             <br />
             <div className={`theme__row ${isLightTheme && 'darkTheme'}`} onClick={() => toggleTheme()}>
-                {isLightTheme ? <DarkModeIcon /> : <LightModeIcon />}
-                <h2 className='theme__title'>{isLightTheme ? 'Dark Mode' : 'Light Mode'}</h2>
+                {!isLightTheme ? <DarkModeIcon className='theme__icon' /> : <LightModeIcon className='theme__icon' />}
+                <h2 className='theme__title'>{!isLightTheme ? 'Dark Mode' : 'Light Mode'}</h2>
             </div>
 
         </div>

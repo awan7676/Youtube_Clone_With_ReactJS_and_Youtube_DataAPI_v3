@@ -199,6 +199,11 @@ iframe {
   background-color: rgb(55, 55, 55);
 }
 
+.avatar {
+  width: 2rem !important;
+  height: 2rem !important;
+}
+
 @media screen and (max-width:990px) {
   iframe {
     height: 20rem;

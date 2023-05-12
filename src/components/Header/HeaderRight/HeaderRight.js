@@ -13,7 +13,7 @@ const HeaderRight = () => {
     const { isLightTheme } = useContext(ThemeContext);
     return (
         <div className={`header__right ${isLightTheme && 'darkTheme'}`}>
-            <div className='header__input' >
+            <div className={`header__input ${isLightTheme && 'darkTheme'}`} >
                 <input className={`${isLightTheme && 'darkTheme'}`} type="text" placeholder='Search' value={inputSearch} onChange={e => setInputSearch(e.target.value)} />
                 <Link to={`/search/${inputSearch}`} className={`header__inputButton ${isLightTheme && 'darkTheme'}`}><SearchIcon className='header__SearchImg' /></Link>
             </div>

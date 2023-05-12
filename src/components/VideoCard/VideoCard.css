@@ -28,7 +28,33 @@
     height: 2rem !important;
 }
 
-.videoCard__text>h4 {
+.videoCard__text {
+    width: 100%;
+}
+
+.videoCard__title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.videoCard__titleDotsIcon {
+    padding: 5px;
+    border-radius: 50%;
+    width: 2rem !important;
+    height: 2rem !important;
+}
+
+.videoCard__titleDotsIcon:hover {
+    background-color: lightgray;
+}
+
+.videoCard__titleDotsIcon.darkTheme:hover {
+    background-color: rgb(55, 55, 55);
+}
+
+
+
+.videoCard__title>h4 {
     margin-bottom: 10px;
 }
 

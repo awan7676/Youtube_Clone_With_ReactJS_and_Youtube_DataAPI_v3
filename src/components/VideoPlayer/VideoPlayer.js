@@ -10,10 +10,12 @@ import ThumbUpOffAltOutlinedIcon from '@mui/icons-material/ThumbUpOffAltOutlined
 import ThumbDownOffAltOutlinedIcon from '@mui/icons-material/ThumbDownOffAltOutlined';
 import { useState, useEffect, useContext } from 'react';
 import { ThemeContext } from '../../contexts/ThemeContext';
+import { formatter } from '../../utils/formatter';
 import axios from 'axios';
+import { DateFormatter } from '../../utils/DateFormatter';
 
 
-const VideoPlayer = ({ videoId, title, description, channelId }) => {
+const VideoPlayer = ({ videoId, title, description, channelId, views, timestamp }) => {
     const { isLightTheme } = useContext(ThemeContext);
     const { API_KEY } = useContext(ApiContext);
     const [videoChannel, setVideoChannel] = useState([]);
@@ -22,7 +24,7 @@ const VideoPlayer = ({ videoId, title, description, channelId }) => {
             .then((response) => setVideoChannel(response.data.items))
             .catch(err => console.log(err));
         console.log(videoChannel);
-    }, [channelId]);
+    }, []);
     return (
         <div className="player-wrapper">
             <iframe src={`https://www.youtube.com/embed/${videoId}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; fullscreen;clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
@@ -31,7 +33,7 @@ const VideoPlayer = ({ videoId, title, description, channelId }) => {
                 <div className='video__info'>
                     {videoChannel.map((channel) =>
                         <div className='channel__info'>
-                            <Avatar className='videoCard__avatar' alt="" src={channel.snippet.thumbnails.default.url} />
+                            {videoChannel.map((channel) => <Avatar className='avatar' alt={channel} src={channel.snippet.thumbnails.default.url} />)}
                             <div className='channel__text'>
                                 <div className='channel__name'>
                                     <h4>{channel.snippet.title}</h4>
@@ -47,7 +49,6 @@ const VideoPlayer = ({ videoId, title, description, channelId }) => {
                                 <ThumbUpOffAltOutlinedIcon style={{ fontSize: '1.25rem' }} />
                                 <span>32K</span>
                             </div>
-                            {/* <span>|</span> */}
                             <div className={`dislike__icon ${isLightTheme && 'darkTheme'}`}>
                                 <ThumbDownOffAltOutlinedIcon style={{ fontSize: '1.25rem' }} />
                             </div>
@@ -65,8 +66,8 @@ const VideoPlayer = ({ videoId, title, description, channelId }) => {
                 </div>
                 <div className={`video__description ${isLightTheme && 'darkTheme'}`}>
                     <div className='video__stats'>
-                        <span><b>127K views</b></span>
-                        <span><b>14 hourse ago</b></span>
+                        <span><b>{formatter(views)}</b></span>
+                        <span><b>{DateFormatter(timestamp)}</b></span>
                     </div>
                     <p style={{ height: '2rem', overflowY: 'hidden' }}>{description}</p>
                     <p><b>Show More</b></p>

@@ -24,7 +24,41 @@
     background-color: rgb(41, 39, 39);
 }
 
+.theme__icon {
+    font-size: larger !important;
+}
+
 .theme__title {
     font-size: 1rem;
     font-weight: 500;
+}
+
+.expand__btn {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.expand__icon {
+    font-size: larger !important;
+}
+
+.expand__title {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.expand__btn:hover {
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+.expand__btn.darkTheme:hover {
+    background-color: rgb(41, 39, 39);
+}
+
+.expand__btn:hover>.expand__icon {
+    color: red;
 }

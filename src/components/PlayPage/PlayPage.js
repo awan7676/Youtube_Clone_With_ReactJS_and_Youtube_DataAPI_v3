@@ -50,6 +50,8 @@ const PlayPage = () => {
                             title={video.snippet.title}
                             description={video.snippet.description}
                             channelId={video.snippet.channelId}
+                            views={video.statistics.viewCount}
+                            timestamp={video.snippet.publishedAt}
                         />)}
                 </div>
 
@@ -58,77 +60,12 @@ const PlayPage = () => {
                         <RelatedVideoCard
                             key={video.id.videoId}
                             videoId={video.id.videoId}
-                            image={video.snippet.thumbnails.high.url}
+                            image={video.snippet.thumbnails.medium.url}
                             title={video.snippet.title}
                             channel={video.snippet.channelTitle}
-                            views="3M views"
-                            timestamp="1 year ago"
+                            timestamp={video.snippet.publishedAt}
                         />)}
                 </div>
-                {/* <div className="related__videos">
-                    <RelatedVideoCard
-                        image='https://img.freepik.com/free-vector/flat-abstract-business-youtube-thumbnail_23-2148925265.jpg?w=1380&t=st=1682945956~exp=1682946556~hmac=58317c1c738bb6f701d20840e1b688bef87c63af4de1e693afb644cbcf739b07'
-                        title='Solidity Tutorial for Beginners - Full Course in 16 Hours (2023)'
-                        channel="Travery Media"
-                        views="2.3M Views"
-                        timestamp="3 days ago"
-
-                    />
-
-                    <RelatedVideoCard
-                        image='https://img.freepik.com/free-vector/flat-abstract-business-youtube-thumbnail_23-2148925265.jpg?w=1380&t=st=1682945956~exp=1682946556~hmac=58317c1c738bb6f701d20840e1b688bef87c63af4de1e693afb644cbcf739b07'
-                        title='Solidity Tutorial for Beginners - Full Course in 16 Hours (2023)'
-                        channel="Travery Media"
-                        views="2.3M Views"
-                        timestamp="3 days ago"
-
-                    />
-
-                    <RelatedVideoCard
-                        image='https://img.freepik.com/free-vector/flat-abstract-business-youtube-thumbnail_23-2148925265.jpg?w=1380&t=st=1682945956~exp=1682946556~hmac=58317c1c738bb6f701d20840e1b688bef87c63af4de1e693afb644cbcf739b07'
-                        title='Solidity Tutorial for Beginners - Full Course in 16 Hours (2023)'
-                        channel="Travery Media"
-                        views="2.3M Views"
-                        timestamp="3 days ago"
-
-                    />
-
-                    <RelatedVideoCard
-                        image='https://img.freepik.com/free-vector/flat-abstract-business-youtube-thumbnail_23-2148925265.jpg?w=1380&t=st=1682945956~exp=1682946556~hmac=58317c1c738bb6f701d20840e1b688bef87c63af4de1e693afb644cbcf739b07'
-                        title='Solidity Tutorial for Beginners - Full Course in 16 Hours (2023)'
-                        channel="Travery Media"
-                        views="2.3M Views"
-                        timestamp="3 days ago"
-
-                    />
-
-                    <RelatedVideoCard
-                        image='https://img.freepik.com/free-vector/flat-abstract-business-youtube-thumbnail_23-2148925265.jpg?w=1380&t=st=1682945956~exp=1682946556~hmac=58317c1c738bb6f701d20840e1b688bef87c63af4de1e693afb644cbcf739b07'
-                        title='Solidity Tutorial for Beginners - Full Course in 16 Hours (2023)'
-                        channel="Travery Media"
-                        views="2.3M Views"
-                        timestamp="3 days ago"
-
-                    />
-
-                    <RelatedVideoCard
-                        image='https://img.freepik.com/free-vector/flat-abstract-business-youtube-thumbnail_23-2148925265.jpg?w=1380&t=st=1682945956~exp=1682946556~hmac=58317c1c738bb6f701d20840e1b688bef87c63af4de1e693afb644cbcf739b07'
-                        title='Solidity Tutorial for Beginners - Full Course in 16 Hours (2023)'
-                        channel="Travery Media"
-                        views="2.3M Views"
-                        timestamp="3 days ago"
-
-                    />
-
-                    <RelatedVideoCard
-                        image='https://img.freepik.com/free-vector/flat-abstract-business-youtube-thumbnail_23-2148925265.jpg?w=1380&t=st=1682945956~exp=1682946556~hmac=58317c1c738bb6f701d20840e1b688bef87c63af4de1e693afb644cbcf739b07'
-                        title='Solidity Tutorial for Beginners - Full Course in 16 Hours (2023)'
-                        channel="Travery Media"
-                        views="2.3M Views"
-                        timestamp="3 days ago"
-
-                    />
-                </div> */}
             </div>
         </div>
     )

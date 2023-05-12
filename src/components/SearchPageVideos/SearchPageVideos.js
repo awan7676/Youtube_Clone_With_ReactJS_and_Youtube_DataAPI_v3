@@ -1,5 +1,6 @@
 import './SearchPageVideos.css';
 import { ApiContext } from '../../contexts/ApiContext';
+import { ThemeContext } from '../../contexts/ThemeContext';
 import ChannelRow from '../ChannelRow/ChannelRow';
 import VideoRow from '../VideoRow/VideoRow';
 import TuneIcon from '@mui/icons-material/Tune';
@@ -9,6 +10,7 @@ import { useParams } from 'react-router-dom';
 import nextId from 'react-id-generator';
 
 const SearchPageVideos = () => {
+    const { isLightTheme } = useContext(ThemeContext);
     const { API_KEY } = useContext(ApiContext);
     let { searchText } = useParams();
     const [videos, setVideos] = useState([]);
@@ -44,14 +46,14 @@ const SearchPageVideos = () => {
 
     return (
         <div className='searchPageVideos'>
-            <div className='searchPageVideos__filter'>
+            <div className={`searchPageVideos__filter ${isLightTheme && 'darkTheme'}`}>
                 <TuneIcon className='searchPageVideos__filterIcon' />
                 <h2>FILTERS</h2>
             </div>
             <hr />
             {isChannel && channel.map((channel) => <ChannelRow
                 key={nextId()}
-                image={channel.snippet.thumbnails.high.url}
+                image={channel.snippet.thumbnails.default.url}
                 channelTitle={channel.snippet.channelTitle}
                 verified
                 subs="660K subscribers"
@@ -68,95 +70,13 @@ const SearchPageVideos = () => {
                     channelId={video.snippet.channelId}
                     image={video.snippet.thumbnails.medium.url}
                     title={video.snippet.title}
-                    views='2M Views'
                     timestamp={video.snippet.publishedAt}
                     channel={video.snippet.channelTitle}
-                    // channelImg='https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg'
                     verified
                     description={video.snippet.description}
-
-                />)}
+                />
+                )}
             </div>
-
-            {/* <div className='searchPageVideos__Videos'>
-                <VideoRow
-                    image='https://img.freepik.com/free-vector/flat-abstract-business-youtube-thumbnail_23-2148925265.jpg?w=1380&t=st=1682945956~exp=1682946556~hmac=58317c1c738bb6f701d20840e1b688bef87c63af4de1e693afb644cbcf739b07'
-                    title='Solidity Tutorial for Beginners - Full Course in 16 Hours (2023)'
-                    views="2.3M Views"
-                    timestamp="3 days ago"
-                    channel="Travery Media"
-                    channelImg='https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg'
-                    verified
-                    description="You can find awesome programming lessons here! Also, expect programming tips and tricks that will take your coding skills to the next level."
-                />
-
-                <VideoRow
-                    image='https://img.freepik.com/free-vector/flat-abstract-business-youtube-thumbnail_23-2148925265.jpg?w=1380&t=st=1682945956~exp=1682946556~hmac=58317c1c738bb6f701d20840e1b688bef87c63af4de1e693afb644cbcf739b07'
-                    title='Solidity Tutorial for Beginners - Full Course in 16 Hours (2023)'
-                    views="2.3M Views"
-                    timestamp="3 days ago"
-                    channel="Travery Media"
-                    channelImg='https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg'
-                    verified
-                    description="You can find awesome aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa programming lessons here! Also, expect programming tips and tricks that will take your coding skills to the next level."
-                />
-
-                <VideoRow
-                    image='https://img.freepik.com/free-vector/flat-abstract-business-youtube-thumbnail_23-2148925265.jpg?w=1380&t=st=1682945956~exp=1682946556~hmac=58317c1c738bb6f701d20840e1b688bef87c63af4de1e693afb644cbcf739b07'
-                    title='Solidity Tutorial for Beginners - Full Course in 16 Hours (2023)'
-                    views="2.3M Views"
-                    timestamp="3 days ago"
-                    channel="Travery Media"
-                    channelImg='https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg'
-                    verified
-                    description="You can find awesome programming lessons here! Also, expect programming tips and tricks that will take your coding skills to the next level."
-                />
-
-                <VideoRow
-                    image='https://img.freepik.com/free-vector/flat-abstract-business-youtube-thumbnail_23-2148925265.jpg?w=1380&t=st=1682945956~exp=1682946556~hmac=58317c1c738bb6f701d20840e1b688bef87c63af4de1e693afb644cbcf739b07'
-                    title='Solidity Tutorial for Beginners - Full Course in 16 Hours (2023)'
-                    views="2.3M Views"
-                    timestamp="3 days ago"
-                    channel="Travery Media"
-                    channelImg='https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg'
-                    verified
-                    description="You can find awesome programming lessons here! Also, expect programming tips and tricks that will take your coding skills to the next level."
-                />
-
-                <VideoRow
-                    image='https://img.freepik.com/free-vector/flat-abstract-business-youtube-thumbnail_23-2148925265.jpg?w=1380&t=st=1682945956~exp=1682946556~hmac=58317c1c738bb6f701d20840e1b688bef87c63af4de1e693afb644cbcf739b07'
-                    title='Solidity Tutorial for Beginners - Full Course in 16 Hours (2023)'
-                    views="2.3M Views"
-                    timestamp="3 days ago"
-                    channel="Travery Media"
-                    channelImg='https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg'
-                    verified
-                    description="You can find awesome programming lessons here! Also, expect programming tips and tricks that will take your coding skills to the next level."
-                />
-
-                <VideoRow
-                    image='https://img.freepik.com/free-vector/flat-abstract-business-youtube-thumbnail_23-2148925265.jpg?w=1380&t=st=1682945956~exp=1682946556~hmac=58317c1c738bb6f701d20840e1b688bef87c63af4de1e693afb644cbcf739b07'
-                    title='Solidity Tutorial for Beginners - Full Course in 16 Hours (2023)'
-                    views="2.3M Views"
-                    timestamp="3 days ago"
-                    channel="Travery Media"
-                    channelImg='https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg'
-                    verified
-                    description="You can find awesome programming lessons here! Also, expect programming tips and tricks that will take your coding skills to the next level."
-                />
-
-                <VideoRow
-                    image='https://img.freepik.com/free-vector/flat-abstract-business-youtube-thumbnail_23-2148925265.jpg?w=1380&t=st=1682945956~exp=1682946556~hmac=58317c1c738bb6f701d20840e1b688bef87c63af4de1e693afb644cbcf739b07'
-                    title='Solidity Tutorial for Beginners - Full Course in 16 Hours (2023)'
-                    views="2.3M Views"
-                    timestamp="3 days ago"
-                    channel="Travery Media"
-                    channelImg='https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg'
-                    verified
-                    description="You can find awesome programming lessons here! Also, expect programming tips and tricks that will take your coding skills to the next level."
-                />
-            </div> */}
-
         </div>
     )
 }
