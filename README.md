@@ -1,70 +1,31 @@
-# Getting Started with Create React App
+Hi there!<br/>
+This is a youtube clone implemented in React JS.<br/>
+YouTube DataAPI v3 is used and Axios is used for HTTP requests to the API.<br/>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+After cloning the code, follow these steps and you are good to go:<br/>
+**1) Go to Google Developers Console and create a new project.**<br/>
+**2) Select the newly created project and navigate to APIs & Services > Library > YouTube > YouTube Data API v3 and enable the API.**<br/>
+**3) Navigate to Credentials and select Create Credentials and choose API Key Option.**<br/>
+**4) Copy the API key.**<br/>
+**5) Open the code folder in editor.**<br/>
+**6) First of all, run npm install**<br/>
+**7) Create a file named ApiContext.js in the /src/contexts and paste the following code in the file:** <br/>
 
-## Available Scripts
+<pre>
+import { createContext } from "react";
 
-In the project directory, you can run:
+export const ApiContext = createContext();
 
-### `npm start`
+const ApiContextProvider = ({ children }) => {
+    const API_KEY = 'Paste the copied API Key here';
+    return (
+        <ApiContext.Provider value={{ API_KEY }}>
+            {children}
+        </ApiContext.Provider>
+    )
+}
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+export default ApiContextProvider
+</pre>
+<br/>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
