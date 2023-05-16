@@ -12,20 +12,7 @@ After cloning the code, follow these steps and you are good to go:<br/>
 **7) Create a file named ApiContext.js in the /src/contexts and paste the following code in the file:** <br/>
 
 <pre>
-import { createContext } from "react";
-
-export const ApiContext = createContext();
-
-const ApiContextProvider = ({ children }) => {
-    const API_KEY = 'Paste the copied API Key here';
-    return (
-        <ApiContext.Provider value={{ API_KEY }}>
-            {children}
-        </ApiContext.Provider>
-    )
-}
-
-export default ApiContextProvider
+export const API_KEY = 'PASTE HERE THE API KEY YOU GENERATED';
 </pre>
 <br/>
 
