@@ -16,3 +16,11 @@ export const API_KEY = 'PASTE HERE THE API KEY YOU GENERATED';
 </pre>
 <br/>
 
+**----------------------------------------SCREENSHOTS-----------------------------------------------**
+
+
+![home](https://github.com/awan7676/Youtube_Clone_With_ReactJS_and_Youtube_DataAPI_v3/assets/88929929/de6f3636-0825-43b5-ace8-23addd09d76e)<br/>
+![dark_mode](https://github.com/awan7676/Youtube_Clone_With_ReactJS_and_Youtube_DataAPI_v3/assets/88929929/72744133-03c0-4fca-a70b-fab9d719f6f9)<br/>
+![Screenshot 2023-05-17 013253](https://github.com/awan7676/Youtube_Clone_With_ReactJS_and_Youtube_DataAPI_v3/assets/88929929/d76ec079-e30f-441f-962b-11bc0f1a4cba)<br/>
+![play](https://github.com/awan7676/Youtube_Clone_With_ReactJS_and_Youtube_DataAPI_v3/assets/88929929/ae8307aa-19f9-4208-8216-04f00260370a)<br/>
+![responsive_1](https://github.com/awan7676/Youtube_Clone_With_ReactJS_and_Youtube_DataAPI_v3/assets/88929929/62d288b1-d4c6-4e35-ac78-5e29ea98bafa)<br/>
