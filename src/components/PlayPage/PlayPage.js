@@ -1,8 +1,8 @@
-import { ApiContext } from "../../contexts/ApiContext"
 import VideoPlayer from "../VideoPlayer/VideoPlayer"
 import HeaderLeft from "../Header/HeaderLeft/HeaderLeft"
 import HeaderRight from "../Header/HeaderRight/HeaderRight"
 import RelatedVideoCard from "../RelatedVideoCard/RelatedVideoCard"
+import { API_KEY } from "../../contexts/ApiContext"
 import './PlayPage.css'
 import { useEffect, useState, useContext } from "react"
 import axios from "axios"
@@ -12,7 +12,6 @@ import { ThemeContext } from "../../contexts/ThemeContext"
 
 const PlayPage = () => {
     const { isLightTheme } = useContext(ThemeContext);
-    const { API_KEY } = useContext(ApiContext);
     let { videoId } = useParams();
     const [relatedVideos, setRelatedVideos] = useState([]);
     const [selectedVideo, setSelectedVideo] = useState([]);

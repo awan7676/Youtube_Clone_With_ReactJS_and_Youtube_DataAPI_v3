@@ -1,7 +1,12 @@
 import './SidebarRow.css';
 import { ThemeContext } from '../../../contexts/ThemeContext';
-import { useContext } from 'react';
-const SidebarRow = ({ Icon, title, selectedCategory, setSelectedCategory }) => {
+import { useContext, useEffect } from 'react';
+const SidebarRow = ({ homeActive, Icon, title, selectedCategory, setSelectedCategory }) => {
+    useEffect(() => {
+        if (homeActive) {
+            setSelectedCategory('Home');
+        }
+    })
 
     const { isLightTheme } = useContext(ThemeContext);
     return (

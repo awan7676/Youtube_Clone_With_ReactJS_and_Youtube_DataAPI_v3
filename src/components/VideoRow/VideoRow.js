@@ -1,5 +1,5 @@
 import './VideoRow.css';
-import { ApiContext } from '../../contexts/ApiContext';
+import { API_KEY } from '../../contexts/ApiContext';
 import Avatar from '@mui/material/Avatar';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
@@ -11,7 +11,6 @@ import { DateFormatter } from '../../utils/DateFormatter';
 import { Link } from 'react-router-dom';
 
 const VideoRow = ({ videoId, channelId, image, title, timestamp, channel, verified, description }) => {
-    const { API_KEY } = useContext(ApiContext);
     const { isLightTheme } = useContext(ThemeContext);
     const [isHover, setIsHover] = useState(false);
     const [currenVideo, setCurrentVideo] = useState([]);

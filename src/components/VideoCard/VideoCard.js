@@ -1,5 +1,5 @@
 import Avatar from '@mui/material/Avatar';
-import { ApiContext } from '../../contexts/ApiContext';
+import { API_KEY } from '../../contexts/ApiContext';
 import './VideoCard.css';
 import { useEffect, useState, useContext } from 'react';
 import { ThemeContext } from '../../contexts/ThemeContext';
@@ -11,7 +11,6 @@ import { DateFormatter } from '../../utils/DateFormatter';
 
 
 const VideoCard = ({ videoId, channelId, image, title, channel, views, timestamp }) => {
-    const { API_KEY } = useContext(ApiContext);
     const { isLightTheme } = useContext(ThemeContext);
     const [isHover, setIsHover] = useState(false);
     const [videoChannel, setVideoChannel] = useState([]);

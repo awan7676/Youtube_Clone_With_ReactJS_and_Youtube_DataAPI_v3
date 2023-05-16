@@ -30,7 +30,7 @@ const SidebarOtherRows = [
     { Icon: MusicNoteOutlinedIcon, title: "Music" },
 ];
 
-const Sidebar = () => {
+const Sidebar = ({ homeActive }) => {
     const { isLightTheme, toggleTheme } = useContext(ThemeContext);
     const [selectedCategory, setSelectedCategory] = useState('Home');
     return (
@@ -38,7 +38,7 @@ const Sidebar = () => {
             {SidebarMainRows.map((row) => {
                 return (
                     <Link to={`${row.title === "Home" ? '/' : `/search/${row.title}`}`} className='sidebar__link' key={nextId()} >
-                        <SidebarRow Icon={row.Icon} title={row.title} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
+                        <SidebarRow homeActive={homeActive} Icon={row.Icon} title={row.title} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
                     </Link>
                 )
             })}

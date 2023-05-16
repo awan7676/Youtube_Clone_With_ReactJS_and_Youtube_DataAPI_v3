@@ -5,7 +5,7 @@ import ShareIcon from '@mui/icons-material/Share';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import SortIcon from '@mui/icons-material/Sort';
 import Button from '../button/Button';
-import { ApiContext } from '../../contexts/ApiContext';
+import { API_KEY } from '../../contexts/ApiContext';
 import ThumbUpOffAltOutlinedIcon from '@mui/icons-material/ThumbUpOffAltOutlined';
 import ThumbDownOffAltOutlinedIcon from '@mui/icons-material/ThumbDownOffAltOutlined';
 import { useState, useEffect, useContext } from 'react';
@@ -17,7 +17,6 @@ import { DateFormatter } from '../../utils/DateFormatter';
 
 const VideoPlayer = ({ videoId, title, description, channelId, views, timestamp }) => {
     const { isLightTheme } = useContext(ThemeContext);
-    const { API_KEY } = useContext(ApiContext);
     const [videoChannel, setVideoChannel] = useState([]);
     useEffect(() => {
         axios.get(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${channelId}&type=channel&part=snippet`, { timeout: 5000 })

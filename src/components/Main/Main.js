@@ -1,26 +1,25 @@
-import SearchPageVideos from "../SearchPageVideos/SearchPageVideos";
-import './SearchPage.css';
-import HeaderLeft from "../Header/HeaderLeft/HeaderLeft";
-import Sidebar from "../Sidebar/Sidebar";
-import HeaderRight from "../Header/HeaderRight/HeaderRight";
-import { useContext } from 'react';
+import { useContext } from "react";
+import './Main.css';
 import { ThemeContext } from "../../contexts/ThemeContext";
-const SearchPage = () => {
+import HeaderLeft from "../Header/HeaderLeft/HeaderLeft";
+import HeaderRight from "../Header/HeaderRight/HeaderRight";
+import Sidebar from "../Sidebar/Sidebar";
 
+const Main = ({ homeActive, children }) => {
     const { isLightTheme } = useContext(ThemeContext);
     return (
-        <div className={`searchPage ${isLightTheme && 'darkTheme'}`}>
+        <div className={`main ${isLightTheme && 'darkTheme'}`}>
             <div className='column' id='left'>
                 <HeaderLeft />
-                <Sidebar />
+                <Sidebar homeActive={homeActive} />
             </div>
             <div className='column' id='right'>
                 <div className='right__header'><HeaderRight /></div>
-                <SearchPageVideos />
+                {children}
             </div>
 
         </div>
     )
 }
 
-export default SearchPage
+export default Main

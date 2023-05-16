@@ -1,5 +1,5 @@
 import './SearchPageVideos.css';
-import { ApiContext } from '../../contexts/ApiContext';
+import { API_KEY } from '../../contexts/ApiContext';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import ChannelRow from '../ChannelRow/ChannelRow';
 import VideoRow from '../VideoRow/VideoRow';
@@ -11,7 +11,6 @@ import nextId from 'react-id-generator';
 
 const SearchPageVideos = () => {
     const { isLightTheme } = useContext(ThemeContext);
-    const { API_KEY } = useContext(ApiContext);
     let { searchText } = useParams();
     const [videos, setVideos] = useState([]);
     const [channel, setChannel] = useState([]);
